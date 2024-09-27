@@ -1,0 +1,8 @@
+<header>
+  <span><h1>User Dashboard</h1></span>
+  @if(showSearch){
+  <span>
+    <app-search (searchId)="onSearchChange($event)"></app-search>
+  </span>
+}
+</header>

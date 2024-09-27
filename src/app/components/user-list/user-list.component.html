@@ -1,0 +1,23 @@
+<app-header [showSearch]="true" (searchId)="handleSearch($event)"></app-header>
+
+<div class="container">
+  <button (click)="addUser()" class="add-user-btn">Add User</button>
+
+
+  <div class="user-list-container">
+    <app-pagination 
+      [currentPage]="currentPage" 
+      [totalPages]="totalPages"
+      [itemsPerPage]="itemsPerPage"
+      [itemsPerPageOptions]="itemsPerPageOptions"
+      (pageChanged)="onPageChanged($event)"
+      (itemsPerPageChanged)="onItemsPerPageChanged($event)">
+    </app-pagination>
+
+    <ul class="user-list">
+      <li *ngFor="let user of paginatedUsers">
+        <app-user [user]="user"></app-user>
+      </li>
+    </ul>
+  </div>
+</div>

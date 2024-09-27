@@ -1,0 +1,44 @@
+<app-header [showSearch]="false"></app-header>
+
+<div class="button-group">
+  <button (click)="goBack()">Back</button>
+  <button (click)="updateUser()">Update</button>
+  <button (click)="deleteUser()">Delete</button>
+</div>
+
+<div *ngIf="user" class="user-details-card">
+  <div class="user-header">
+    <img
+      [src]="user.avatar ? user.avatar : 'assets/images/profile.png'"
+      alt="{{ user.first_name }}'s avatar"
+      class="avatar"
+    />
+    <div class="profile-initials" *ngIf="!user.avatar && user.first_name && user.last_name">
+      {{ user.first_name[0] }}{{ user.last_name[0] }}
+    </div>
+    <div class="user-header-info">
+      <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+      <p>{{ user.email }}</p>
+    </div>
+  </div>
+  
+  <hr />
+  <div class="user-body">
+    <img
+      [src]="user.avatar ? user.avatar : 'assets/images/profile.png'"
+      alt="{{ user.first_name }}'s avatar"
+      class="user-large-image"
+    />
+    <div class="profile-initials-large" *ngIf="!user.avatar && user.first_name && user.last_name">
+      {{ user.first_name[0] }}{{ user.last_name[0] }}
+    </div>
+    <div class="user-info">
+      <p><strong>Full Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>User Id:</strong> {{ user.id }}</p>
+    </div>
+  </div>
+  <p class="user-description">
+    Support: To keep ReqRes free, contributions towards server costs are appreciated!
+  </p>
+</div>

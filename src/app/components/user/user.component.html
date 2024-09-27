@@ -1,0 +1,26 @@
+<li class="user-card">
+  <div class="user-avatar">
+    <img
+      [src]="user.avatar"
+      class="avatar"
+    />
+
+    <div class="profile-initials" *ngIf="!user.avatar && user.first_name && user.last_name">
+      {{ user.first_name[0] }}{{ user.last_name[0] }}
+    </div>
+  </div>
+
+  <div class="user-info">
+    <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+    <p>{{ user.email }}</p>
+    <hr />
+    <div class="button-container">
+      <button class="view-details-button" (click)="viewDetails()">
+        View details
+      </button>
+      <button class="delete-button" (click)="deleteUser()">
+        Delete
+      </button>
+    </div>
+  </div>
+</li>
